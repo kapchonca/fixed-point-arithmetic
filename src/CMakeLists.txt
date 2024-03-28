@@ -2,7 +2,9 @@ cmake_minimum_required(VERSION 3.5)
 
 project(fixed_point)
 
-add_executable(fixed_point main.cc fixed_point.cc)
+add_executable(fixed_point main.cc)
 
-SET(GCC_COVERAGE_COMPILE_FLAGS "-Wall -std=c++17")
+set(CMAKE_CXX_STANDARD 17)
+
+set(GCC_COVERAGE_COMPILE_FLAGS "-Wall -Wextra -std=c++17")
 add_definitions(${GCC_COVERAGE_COMPILE_FLAGS})

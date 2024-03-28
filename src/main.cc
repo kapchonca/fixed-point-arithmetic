@@ -1,9 +1,16 @@
+#include <cmath>
+#include <iostream>
+
 #include "h/fixed_point.h"
 
-int main(int argc, char const* argv[]) {
-  fixed<int16_t, int32_t, 4> g(7.125f);
-  fixed<int16_t, int32_t, 2> f(10.25f);
+int main() {
+  fixed<16> g(7L);
+  fixed<8> f(10.25f);
   g /= f;
-  std::cout << g.ToFloat();
+  std::cout << g.ToFloat() << std::endl;
+  fixed<4, int8_t, int16_t> h(std::sqrt(2));
+  fixed<4, int8_t, int16_t> q(std::sqrt(3));
+  h -= q;
+  std::cout << h.ToFloat() << std::endl;
   return 0;
 }
